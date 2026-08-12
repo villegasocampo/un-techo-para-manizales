@@ -9,16 +9,27 @@
 <meta name="description" content="Un Techo para Manizales. Iniciativa solidaria para ayudar a familias afectadas a encontrar una vivienda y conectar propietarios que quieran ayudar.">
 
 <style>
+
 :root{
 --navy:#123b78;
+--blue:#1555a6;
 --orange:#ef6500;
+--orange-dark:#d95700;
+--green:#16834b;
 --ink:#172033;
 --muted:#5c6678;
---bg:#f7f9fc;
---green:#16834b;
+--bg:#f6f8fc;
+--white:#ffffff;
+--line:#e5eaf1;
 }
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 margin:0;
@@ -30,16 +41,16 @@ line-height:1.55;
 
 header{
 background:#fff;
-border-bottom:1px solid #e7ebf1;
+border-bottom:1px solid var(--line);
 position:sticky;
 top:0;
-z-index:5;
+z-index:20;
 }
 
 .nav{
-max-width:1120px;
+max-width:1150px;
 margin:auto;
-padding:14px 20px;
+padding:12px 20px;
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -47,42 +58,64 @@ gap:20px;
 }
 
 .logo{
-height:62px;
-width:auto;
-object-fit:contain;
+display:flex;
+align-items:center;
+gap:10px;
+text-decoration:none;
 }
 
-.nav a{
+.logo svg{
+width:215px;
+height:auto;
+display:block;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:24px;
+}
+
+.nav-links a{
 color:var(--ink);
 text-decoration:none;
 font-weight:700;
-margin-left:22px;
+font-size:15px;
 }
 
+.nav-links a:hover{
+color:var(--orange);
+}
+
+/* HERO */
+
 .hero{
-background:linear-gradient(135deg,#fff 0%,#fff 55%,#eef4ff 100%);
-padding:60px 20px 55px;
+background:
+linear-gradient(135deg,#fff 0%,#fff 52%,#eef4ff 100%);
+padding:65px 20px 60px;
 }
 
 .hero-inner{
-max-width:1120px;
+max-width:1150px;
 margin:auto;
 display:grid;
 grid-template-columns:1.05fr .95fr;
-gap:45px;
+gap:50px;
 align-items:center;
 }
 
 .kicker{
 color:var(--orange);
-font-weight:800;
-letter-spacing:.4px;
+font-weight:900;
+font-size:14px;
+letter-spacing:.6px;
 }
 
 .hero h1{
-font-size:clamp(44px,6vw,72px);
-line-height:.98;
-margin:12px 0;
+font-size:clamp(44px,6vw,76px);
+line-height:.96;
+margin:14px 0 20px;
+color:var(--navy);
 }
 
 .hero h1 span{
@@ -91,8 +124,9 @@ color:var(--orange);
 
 .hero h2{
 font-size:25px;
+line-height:1.25;
 color:var(--navy);
-margin:20px 0 10px;
+margin:0 0 15px;
 }
 
 .hero p{
@@ -102,145 +136,194 @@ color:#303a4d;
 
 .benefit{
 display:block;
-border:1px solid #ffd2b5;
+margin-top:18px;
+padding:17px 20px;
+border-radius:15px;
 background:#fff8f2;
-padding:16px 18px;
-border-radius:14px;
-font-weight:800;
+border:1px solid #ffd0b0;
 color:var(--orange);
-margin-top:15px;
+font-weight:900;
 }
 
 .free{
 display:block;
-border:1px solid #b9e5ca;
-background:#effbf4;
-padding:16px 18px;
-border-radius:14px;
-font-weight:800;
-color:var(--green);
 margin-top:12px;
+padding:17px 20px;
+border-radius:15px;
+background:#effbf4;
+border:1px solid #b8e4c8;
+color:var(--green);
+font-weight:900;
+}
+
+.free small{
+font-weight:500;
+display:block;
+margin-top:5px;
+color:#426450;
 }
 
 .city{
-min-height:390px;
-border-radius:28px;
-background:linear-gradient(145deg,#dceaff,#fff);
+min-height:410px;
+border-radius:30px;
+background:
+linear-gradient(145deg,#dceaff,#ffffff);
 display:flex;
 align-items:center;
 justify-content:center;
-box-shadow:0 18px 45px #123b7820;
+box-shadow:0 20px 50px rgba(18,59,120,.13);
 overflow:hidden;
 position:relative;
 }
 
 .city:before{
 content:"🏠";
-font-size:150px;
+font-size:180px;
 opacity:.12;
 position:absolute;
 }
 
+.city:after{
+content:"";
+position:absolute;
+width:230px;
+height:230px;
+border-radius:50%;
+border:2px solid rgba(18,59,120,.08);
+}
+
 .city-text{
 position:relative;
+z-index:2;
 text-align:center;
 color:var(--navy);
 font-weight:900;
-font-size:42px;
+font-size:48px;
 padding:30px;
 }
 
+.city-text span{
+color:var(--orange);
+}
+
+/* CONTENIDO */
+
 .container{
-max-width:1120px;
+max-width:1150px;
 margin:auto;
-padding:35px 20px;
+padding:40px 20px 60px;
 }
 
 .intro{
 background:#fff;
-border-radius:22px;
-padding:30px;
-margin-bottom:25px;
-box-shadow:0 8px 30px #12203b12;
+border-radius:24px;
+padding:32px;
+margin-bottom:28px;
+box-shadow:0 8px 30px rgba(18,32,59,.07);
 text-align:center;
+border:1px solid var(--line);
 }
 
 .intro h2{
+margin:0 0 15px;
 color:var(--navy);
-margin-top:0;
-font-size:30px;
+font-size:31px;
 }
 
 .intro strong{
 color:var(--orange);
 }
 
+.intro p{
+font-size:17px;
+color:#4b5565;
+}
+
+/* TARJETAS */
+
 .cards{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:22px;
+gap:24px;
 }
 
 .card{
 background:#fff;
-border-radius:22px;
+border-radius:24px;
 padding:30px;
-box-shadow:0 8px 30px #12203b12;
-border:1px solid #e7ebf1;
+box-shadow:0 8px 30px rgba(18,32,59,.07);
+border:1px solid var(--line);
 }
 
 .card h3{
 font-size:27px;
-margin:0 0 12px;
+margin:0 0 14px;
 color:var(--navy);
 }
 
 .card p{
 color:#4b5565;
+font-size:16px;
 }
+
+.card strong{
+color:var(--navy);
+}
+
+/* BOTONES */
 
 .btn{
 display:block;
+width:100%;
 text-align:center;
-padding:16px;
-border-radius:12px;
+padding:17px 18px;
+border-radius:13px;
 text-decoration:none;
 color:#fff;
 font-weight:900;
 font-size:17px;
-margin-top:20px;
+margin-top:22px;
+transition:.2s;
+}
+
+.btn:hover{
+transform:translateY(-1px);
 }
 
 .orange{
 background:var(--orange);
 }
 
+.orange:hover{
+background:var(--orange-dark);
+}
+
 .blue{
 background:var(--navy);
+}
+
+.blue:hover{
+background:#0d2f62;
 }
 
 .green{
 background:var(--green);
 }
 
-.section-title{
-text-align:center;
-color:var(--navy);
-font-size:34px;
-margin:55px 0 25px;
-}
+/* DESTACADO */
 
 .highlight{
+margin-top:28px;
 background:linear-gradient(135deg,#fff8f2,#fff);
 border:2px solid #ffd2b5;
-border-radius:24px;
-padding:30px;
+border-radius:25px;
+padding:32px;
 text-align:center;
 }
 
 .highlight h2{
 color:var(--orange);
-margin-top:0;
+margin:0 0 15px;
 font-size:32px;
 }
 
@@ -248,6 +331,17 @@ font-size:32px;
 font-size:18px;
 color:#303a4d;
 }
+
+/* TITULOS */
+
+.section-title{
+text-align:center;
+color:var(--navy);
+font-size:35px;
+margin:60px 0 27px;
+}
+
+/* POR QUE */
 
 .why{
 display:grid;
@@ -257,44 +351,56 @@ gap:18px;
 
 .why article{
 background:#fff;
-padding:25px;
-border-radius:18px;
+padding:26px 20px;
+border-radius:20px;
 text-align:center;
+border:1px solid var(--line);
+box-shadow:0 5px 20px rgba(18,32,59,.05);
 }
 
 .icon{
-font-size:42px;
+font-size:43px;
 }
 
 .why h4{
 color:var(--navy);
 margin:10px 0;
+font-size:16px;
 }
 
 .why p{
 color:var(--muted);
+font-size:15px;
 }
+
+/* PROCESO */
 
 .process{
 background:#eef3fa;
-border-radius:24px;
-padding:30px;
+border-radius:25px;
+padding:32px;
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:18px;
+gap:20px;
 text-align:center;
+}
+
+.process-item{
+font-size:15px;
+color:#4b5565;
 }
 
 .process b{
 color:var(--navy);
 display:block;
-margin:8px 0;
+margin:9px 0 5px;
+font-size:17px;
 }
 
 .number{
 display:inline-flex;
-width:48px;
-height:48px;
+width:50px;
+height:50px;
 border-radius:50%;
 background:#fff;
 border:3px solid var(--orange);
@@ -302,74 +408,137 @@ align-items:center;
 justify-content:center;
 color:var(--navy);
 font-weight:900;
+font-size:18px;
 }
+
+/* AVISO */
 
 .notice{
 background:#fff;
 border-left:6px solid var(--green);
-padding:22px;
-border-radius:14px;
+padding:23px;
+border-radius:15px;
 margin-top:25px;
+box-shadow:0 5px 20px rgba(18,32,59,.05);
 }
 
 .notice strong{
 color:var(--green);
 }
 
+/* FORMULARIOS */
+
+.form-card{
+background:#fff;
+border-radius:25px;
+padding:32px;
+border:1px solid var(--line);
+box-shadow:0 8px 30px rgba(18,32,59,.07);
+}
+
+.form-card h3{
+color:var(--navy);
+font-size:25px;
+margin-top:0;
+}
+
+.form-card p{
+color:#4b5565;
+font-size:17px;
+}
+
+/* CONTACTO */
+
 .contact{
 background:var(--navy);
 color:#fff;
-padding:35px 20px;
+padding:45px 20px;
 }
 
 .contact-inner{
-max-width:1120px;
+max-width:1150px;
 margin:auto;
 display:flex;
 justify-content:space-between;
-gap:25px;
+gap:40px;
 align-items:center;
+}
+
+.contact h2{
+margin-top:0;
+font-size:30px;
 }
 
 .contact a{
 color:#fff;
+text-decoration:none;
+font-size:18px;
+}
+
+.contact a:hover{
+text-decoration:underline;
+}
+
+.contact-right{
+text-align:right;
 }
 
 .privacy{
 font-size:14px;
 color:#dbe5f5;
 margin-top:25px;
+max-width:650px;
 }
+
+/* FOOTER */
 
 footer{
 background:#0b2852;
 color:#fff;
 text-align:center;
-padding:22px;
+padding:23px 20px;
+font-size:14px;
 }
 
-@media(max-width:800px){
+/* RESPONSIVE */
 
-.hero-inner,
-.cards{
-grid-template-columns:1fr;
+@media(max-width:850px){
+
+.nav{
+padding:10px 15px;
 }
 
-.why,
-.process{
-grid-template-columns:1fr 1fr;
+.logo svg{
+width:190px;
 }
 
-.nav a{
+.nav-links{
 display:none;
 }
 
 .hero{
-padding-top:40px;
+padding-top:42px;
+}
+
+.hero-inner{
+grid-template-columns:1fr;
+gap:30px;
 }
 
 .city{
-min-height:260px;
+min-height:280px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.why{
+grid-template-columns:1fr 1fr;
+}
+
+.process{
+grid-template-columns:1fr 1fr;
 }
 
 .contact-inner{
@@ -377,48 +546,156 @@ flex-direction:column;
 align-items:flex-start;
 }
 
+.contact-right{
+text-align:left;
 }
 
-@media(max-width:500px){
-
-.why,
-.process{
-grid-template-columns:1fr;
 }
 
-.logo{
-height:52px;
+@media(max-width:520px){
+
+.logo svg{
+width:175px;
 }
 
 .hero h1{
 font-size:48px;
 }
 
+.hero h2{
+font-size:22px;
 }
+
+.hero p{
+font-size:17px;
+}
+
+.city{
+min-height:250px;
+}
+
+.city-text{
+font-size:38px;
+}
+
+.container{
+padding-left:15px;
+padding-right:15px;
+}
+
+.intro,
+.card,
+.form-card{
+padding:24px;
+}
+
+.section-title{
+font-size:29px;
+margin-top:45px;
+}
+
+.why,
+.process{
+grid-template-columns:1fr;
+}
+
+.highlight{
+padding:25px 20px;
+}
+
+}
+
+/* LOGO */
+
+.logo-mark{
+fill:#ef6500;
+}
+
+.logo-ring{
+fill:#000;
+}
+
+.logo-text{
+fill:#123b78;
+}
+
+.logo-small{
+fill:#123b78;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
+
 <div class="nav">
 
-<img class="logo"
-src="logo-villegas-ocampo.jpeg"
-alt="Villegas Ocampo Propiedad Raíz">
+<a class="logo" href="#inicio" aria-label="Villegas Ocampo Propiedad Raíz">
 
-<nav>
-<a href="#iniciativa">La iniciativa</a>
+<svg viewBox="0 0 520 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Villegas Ocampo Propiedad Raíz">
+
+<!-- símbolo -->
+<circle cx="75" cy="75" r="70" class="logo-mark"/>
+
+<path
+d="M75 30
+C49 30 29 50 29 75
+C29 100 49 120 75 120
+C101 120 121 100 121 75
+C121 50 101 30 75 30
+ZM75 48
+C90 48 103 60 103 75
+C103 90 90 102 75 102
+C60 102 47 90 47 75
+C47 60 60 48 75 48Z"
+class="logo-ring"/>
+
+<!-- texto -->
+<text x="145" y="65"
+font-family="Arial,Helvetica,sans-serif"
+font-size="43"
+font-weight="800"
+class="logo-text">
+Villegas
+</text>
+
+<text x="145" y="108"
+font-family="Arial,Helvetica,sans-serif"
+font-size="43"
+font-weight="800"
+class="logo-text">
+Ocampo
+</text>
+
+<text x="300" y="137"
+font-family="Arial,Helvetica,sans-serif"
+font-size="17"
+font-weight="700"
+class="logo-small">
+Propiedad Raíz
+</text>
+
+</svg>
+
+</a>
+
+<nav class="nav-links">
+<a href="#inicio">Inicio</a>
 <a href="#ayuda">Ayuda</a>
 <a href="#como">¿Cómo funciona?</a>
 <a href="#contacto">Contacto</a>
 </nav>
 
 </div>
+
 </header>
 
 
-<section class="hero" id="iniciativa">
+<!-- HERO -->
+
+<section class="hero" id="inicio">
 
 <div class="hero-inner">
 
@@ -438,7 +715,9 @@ Juntos podemos ayudar a que ninguna familia afectada tenga que enfrentar esta si
 </h2>
 
 <p>
-Si tu vivienda resultó afectada por la emergencia y necesitas un lugar donde vivir, <strong>registra tu caso.</strong> Nuestro objetivo es ayudarte a encontrar una vivienda de alquiler adecuada a tus necesidades y conectar a las familias afectadas con propietarios dispuestos a ayudar.
+Si tu vivienda resultó afectada por la emergencia y necesitas un lugar donde vivir,
+<strong>registra tu caso.</strong>
+Nuestro objetivo es ayudarte a encontrar una vivienda de alquiler adecuada a tus necesidades y conectar a las familias afectadas con propietarios dispuestos a ayudar.
 </p>
 
 <div class="benefit">
@@ -447,8 +726,11 @@ Si tu vivienda resultó afectada por la emergencia y necesitas un lugar donde vi
 
 <div class="free">
 🎁 ALGUNOS INMUEBLES PUEDEN OFRECER EL PRIMER MES GRATIS PARA FAMILIAS DAMNIFICADAS
-<br>
-<small>Esta ayuda depende de la disponibilidad y de las condiciones ofrecidas por cada propietario.</small>
+
+<small>
+Esta ayuda depende de la disponibilidad y de las condiciones ofrecidas por cada propietario.
+</small>
+
 </div>
 
 </div>
@@ -459,9 +741,7 @@ Si tu vivienda resultó afectada por la emergencia y necesitas un lugar donde vi
 <div class="city-text">
 Manizales
 <br>
-<span style="color:var(--orange)">
-se levanta
-</span>
+<span>se levanta</span>
 </div>
 
 </div>
@@ -473,6 +753,8 @@ se levanta
 
 <main class="container">
 
+
+<!-- INTRO -->
 
 <div class="intro">
 
@@ -492,6 +774,8 @@ Queremos ayudarte a encontrar una alternativa de vivienda y acompañarte durante
 </div>
 
 
+<!-- DOS OPCIONES -->
+
 <div class="cards" id="ayuda">
 
 
@@ -503,16 +787,27 @@ Queremos ayudarte a encontrar una alternativa de vivienda y acompañarte durante
 
 <p>
 ¿Tu vivienda resultó afectada? ¿No puedes regresar a tu hogar o tu familia necesita un lugar donde vivir?
+</p>
 
+<p>
 <strong>Registra tu caso.</strong>
-
 Cuéntanos qué tipo de vivienda necesitas, cuántas personas conforman tu familia y cómo podemos contactarte.
+</p>
 
+<p>
 Nuestro equipo revisará la información y buscará opciones disponibles.
 </p>
 
-<a class="btn orange" href="#solicitud">
-NECESITO UNA VIVIENDA →
+<!-- FORMULARIO FAMILIAS -->
+
+<a
+class="btn orange"
+href="https://docs.google.com/forms/d/e/1FAIpQLSc0RvXSIHDc_eZrl-7PebiF_kXLC9bG-F8vgUkVLwOD7D9aKA/viewform?usp=dialog"
+target="_blank"
+rel="noopener noreferrer">
+
+🆘 NECESITO UNA VIVIENDA →
+
 </a>
 
 </article>
@@ -526,20 +821,34 @@ NECESITO UNA VIVIENDA →
 
 <p>
 Si tienes una casa o apartamento disponible y quieres ayudar a una familia afectada, puedes poner tu inmueble a disposición de esta iniciativa.
+</p>
 
+<p>
 Puedes ofrecerlo para alquiler y, si deseas, también puedes brindar condiciones especiales de ayuda.
+</p>
 
+<p>
 <strong>Cada vivienda ofrecida puede significar una nueva oportunidad para una familia.</strong>
 </p>
 
-<a class="btn blue" href="#ofrecer">
-QUIERO OFRECER UNA VIVIENDA →
+<!-- FORMULARIO PROPIETARIOS -->
+
+<a
+class="btn blue"
+href="https://docs.google.com/forms/d/e/1FAIpQLSdJGEj9o7lJH8_hte37uZYt_jbH8DvmWM4V2VlHXKsQ2rrBaQ/viewform?usp=dialog"
+target="_blank"
+rel="noopener noreferrer">
+
+🏠 QUIERO OFRECER UNA VIVIENDA →
+
 </a>
 
 </article>
 
 </div>
 
+
+<!-- DESTACADO -->
 
 <section class="highlight">
 
@@ -557,16 +866,18 @@ Si tienes una vivienda disponible y quieres hacer parte de esta ayuda, indícalo
 </p>
 
 <p>
-Si eres una familia afectada, <strong>pregunta por las viviendas que tengan este beneficio.</strong>
+Si eres una familia afectada,
+<strong>pregunta por las viviendas que tengan este beneficio.</strong>
 </p>
 
 </section>
 
 
+<!-- POR QUE -->
+
 <h2 class="section-title">
 ¿Por qué lo hacemos?
 </h2>
-
 
 <div class="why">
 
@@ -605,32 +916,33 @@ La información será utilizada exclusivamente para gestionar esta iniciativa.
 </div>
 
 
+<!-- COMO FUNCIONA -->
+
 <h2 class="section-title" id="como">
 ¿Cómo funciona?
 </h2>
 
-
 <div class="process">
 
-<div>
+<div class="process-item">
 <span class="number">1</span>
 <b>Registra tu caso</b>
 Cuéntanos qué necesitas.
 </div>
 
-<div>
+<div class="process-item">
 <span class="number">2</span>
 <b>Revisamos la información</b>
 Nuestro equipo revisará tu solicitud.
 </div>
 
-<div>
+<div class="process-item">
 <span class="number">3</span>
 <b>Buscamos una opción</b>
 Conectamos familias con viviendas disponibles.
 </div>
 
-<div>
+<div class="process-item">
 <span class="number">4</span>
 <b>Coordinamos el traslado</b>
 Apoyamos el trasteo sin costo.
@@ -639,70 +951,102 @@ Apoyamos el trasteo sin costo.
 </div>
 
 
+<!-- AVISO FAMILIAS -->
+
 <div class="notice">
 
 <strong>❤️ Si eres una familia afectada:</strong>
 
+<br><br>
+
 No esperes a que la situación se vuelva más difícil.
-Si necesitas una vivienda, registra tu caso. Queremos saber cómo podemos ayudarte.
+Si necesitas una vivienda, puedes registrar tu caso directamente en nuestro formulario.
 
 </div>
 
+
+<!-- FORMULARIO FAMILIAS -->
 
 <h2 class="section-title" id="solicitud">
 🆘 Necesito una vivienda
 </h2>
 
+<div class="form-card">
 
-<div class="card">
+<h3>
+Registra tu solicitud de vivienda
+</h3>
 
 <p>
-Completa el registro para contarnos tu situación, las características de la vivienda que necesitas, cuántas personas conforman tu familia y tus datos de contacto.
+Completa el formulario para contarnos tu situación, las características de la vivienda que necesitas, cuántas personas conforman tu familia y tus datos de contacto.
+</p>
 
+<p>
 <strong>La información será revisada de manera confidencial.</strong>
 </p>
 
-<a class="btn orange"
-href="https://docs.google.com/forms/d/e/1FAIpQLSc0RvXSIHDc_eZrl-7PebiF_kXLC9bG-F8vgUkVLwOD7D9aKA/viewform"
+<a
+class="btn orange"
+href="https://docs.google.com/forms/d/e/1FAIpQLSc0RvXSIHDc_eZrl-7PebiF_kXLC9bG-F8vgUkVLwOD7D9aKA/viewform?usp=dialog"
 target="_blank"
 rel="noopener noreferrer">
-ABRIR REGISTRO DE VIVIENDA
+
+🆘 ABRIR FORMULARIO DE VIVIENDA
+
 </a>
 
 </div>
 
+
+<!-- FORMULARIO PROPIETARIOS -->
 
 <h2 class="section-title" id="ofrecer">
 🏠 Quiero ofrecer una vivienda
 </h2>
 
+<div class="form-card">
 
-<div class="card">
+<h3>
+Registra tu vivienda
+</h3>
 
 <p>
 Si tienes una casa o apartamento disponible para alquilar y quieres ayudar a una familia afectada, registra aquí tu inmueble.
+</p>
 
+<p>
 Puedes indicar si deseas ofrecer
 <strong>el primer mes gratis, un valor especial de alquiler u otra forma de ayuda.</strong>
 </p>
 
-<a class="btn blue"
-href="https://docs.google.com/forms/d/e/1FAIpQLSdJGEj9o7lJH8_hte37uZYt_jbH8DvmWM4V2VlHXKsQ2rrBaQ/viewform"
+<a
+class="btn blue"
+href="https://docs.google.com/forms/d/e/1FAIpQLSdJGEj9o7lJH8_hte37uZYt_jbH8DvmWM4V2VlHXKsQ2rrBaQ/viewform?usp=dialog"
 target="_blank"
 rel="noopener noreferrer">
-REGISTRAR MI VIVIENDA
+
+🏠 REGISTRAR MI VIVIENDA
+
 </a>
 
 </div>
 
 
+<!-- AVISO PROPIETARIOS -->
+
 <div class="notice">
 
 <strong>🏠 Propietarios de Manizales:</strong>
 
+<br><br>
+
 Si tienes una vivienda disponible, esta puede convertirse en el nuevo hogar de una familia que hoy lo necesita.
 
+<br><br>
+
 No importa si puedes ofrecer una ayuda económica, un mes gratis o simplemente una vivienda en condiciones justas.
+
+<br><br>
 
 <strong>Tu decisión puede hacer una gran diferencia.</strong>
 
@@ -711,6 +1055,8 @@ No importa si puedes ofrecer una ayuda económica, un mes gratis o simplemente u
 
 </main>
 
+
+<!-- CONTACTO -->
 
 <section class="contact" id="contacto">
 
@@ -734,20 +1080,20 @@ Los datos enviados serán utilizados exclusivamente para gestionar la ayuda de v
 </div>
 
 
-<div>
+<div class="contact-right">
 
 <strong>Contáctanos</strong>
 
-<br>
+<br><br>
 
 <a href="tel:+573192354152">
-319 235 4152
+📞 319 235 4152
 </a>
 
-<br>
+<br><br>
 
 <a href="tel:+573164744607">
-316 474 4607
+📞 316 474 4607
 </a>
 
 </div>
